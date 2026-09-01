@@ -77,9 +77,9 @@ Fiori Preview
 ### 9. Service Binding
 <img width="940" height="959" alt="image" src="https://github.com/user-attachments/assets/f9d5a2a1-2148-4025-9e09-94733ca6a6aa" />
 Before activating
-<img width="940" height="524" alt="image" src="https://github.com/user-attachments/assets/22501562-4511-4a05-9cf1-777c9aaa28ae" />
+
 After Activating
-<img width="940" height="549" alt="image" src="https://github.com/user-attachments/assets/058aae60-a45d-464d-9664-bfe59c6b35e4" />
+
 <img width="940" height="494" alt="image" src="https://github.com/user-attachments/assets/a3383fee-8d8b-4483-b808-063259f8242c" />
 
 
