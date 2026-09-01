@@ -1,0 +1,11 @@
+CLASS zbp_i_sr_request DEFINITION
+  PUBLIC
+  ABSTRACT
+  FINAL
+  FOR BEHAVIOR OF zi_sr_request.
+
+ENDCLASS.
+
+CLASS zbp_i_sr_request IMPLEMENTATION.
+
+ENDCLASS.
