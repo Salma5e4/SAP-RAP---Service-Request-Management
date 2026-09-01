@@ -92,8 +92,7 @@ After Activating
 
 
 ### 10. Fiori Preview
-<img width="785" height="814" alt="image" src="https://github.com/user-attachments/assets/6a482c9a-6994-4220-9052-475ced0cfd3d" />
-<img width="714" height="853" alt="image" src="https://github.com/user-attachments/assets/ebdf2be4-aa2b-48c3-a305-b46a41288f11" />
+
 <img width="940" height="433" alt="image" src="https://github.com/user-attachments/assets/ecbdcab8-fced-4387-ab8b-68e903d62889" />
 <img width="819" height="585" alt="image" src="https://github.com/user-attachments/assets/08939163-bfe9-4a67-9577-ffd5d66b2290" />
 
