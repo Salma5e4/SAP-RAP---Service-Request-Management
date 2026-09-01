@@ -1,96 +1,290 @@
-# SAP-RAP---Service-Request-Management
+# SAP RAP Service Request Management
 
+A simple **Service Request Management application** built using the **SAP ABAP RESTful Application Programming Model (RAP)**.
 
-## Project Overview
+This project demonstrates the basic development flow of a managed RAP application, from creating the CDS data model to exposing the application as a service and previewing it with SAP Fiori Elements.
 
-This project is developed using SAP ABAP RESTful Application Programming Model (RAP).
+---
 
-## Technology Used
+## 📌 Project Overview
 
-- SAP ABAP
-- SAP RAP
-- CDS Views
-- Behavior Definition
-- Behavior Pool
-- Projection View
-- Service Definition
-- Service Binding
-- Fiori Elements
+The Service Request Management application allows service requests to be managed through a RAP-based business object.
 
-## Project Objects
+The project follows the standard RAP architecture:
 
-- ZSRM_REQUEST - Database Table
-- ZI_SR_REQUEST - Interface CDS View
-- ZBP_I_SR_REQUEST - Behavior Pool
-- ZC_SR_REQUEST - Projection CDS View
-- ZUI_SR_REQUEST - Service Definition
+```text
+Database Table
+      ↓
+Interface CDS View
+      ↓
+Behavior Definition
+      ↓
+Behavior Implementation
+      ↓
+Projection CDS View
+      ↓
+Projection Behavior
+      ↓
+Service Definition
+      ↓
+Service Binding
+      ↓
+SAP Fiori Elements Preview
+```
 
-## Project Flow
+---
 
-Database Table  
-↓  
-Interface CDS View  
-↓  
-Behavior Definition  
-↓  
-Behavior Pool  
-↓  
-Projection CDS View  
-↓  
-Projection Behavior  
-↓  
-Service Definition  
-↓  
-Service Binding  
-↓  
-Fiori Preview
+## 🛠️ Technologies Used
 
-## Screenshots
+* SAP ABAP
+* SAP ABAP RESTful Application Programming Model (RAP)
+* Core Data Services (CDS)
+* Managed Behavior Implementation
+* ABAP Development Tools (ADT)
+* Eclipse
+* SAP Fiori Elements
+
+---
+
+## 📂 Project Components
 
 ### 1. Database Table
-<img width="940" height="485" alt="image" src="https://github.com/user-attachments/assets/70b2aebd-ed36-4526-8bea-144cbbd29c6d" />
+
+The application uses the database table:
+
+```text
+ZSRM_REQUEST
+```
+
+The table stores the service request data used by the RAP business object.
+
+---
+
+### 2. Interface CDS View
+
+The interface view represents the core business object.
+
+**CDS View Name:**
+
+```text
+ZI_SR_REQUEST
+```
+
+It is defined as a **Root View Entity** and reads data from the service request database table.
+
+The main fields include:
+
+* Request ID
+* Requester
+* Priority
+* Description
+* Status
+* Created By
+* Created At
+* Last Changed By
+* Last Changed At
+
+---
+
+### 3. Behavior Definition
+
+The project uses a **Managed RAP Behavior Definition**.
+
+The business object supports the following operations:
+
+* Create
+* Update
+* Delete
+
+The `RequestId` field is configured as read-only.
+
+**Behavior Implementation Class:**
+
+```text
+ZBP_I_SR_REQUEST
+```
+
+---
+
+### 4. Behavior Pool
+
+The behavior pool is generated automatically from the RAP Behavior Definition.
+
+**Class Name:**
+
+```text
+ZBP_I_SR_REQUEST
+```
+
+This class is responsible for the behavior implementation of the RAP business object.
+
+---
+
+### 5. Projection CDS View
+
+The projection view exposes the business object for consumption.
+
+**Projection View:**
+
+```text
+ZC_SR_REQUEST
+```
+
+The projection is based on:
+
+```text
+ZI_SR_REQUEST
+```
+
+It uses the RAP transactional query provider contract.
+
+---
+
+### 6. Projection Behavior Definition
+
+A projection behavior definition is created for:
+
+```text
+ZC_SR_REQUEST
+```
+
+This connects the consumption layer with the behavior defined in the interface layer.
+
+---
+
+### 7. Service Definition
+
+The RAP business object is exposed through a Service Definition.
+
+**Service Name:**
+
+```text
+ZUI_SR_REQUEST
+```
+
+The service exposes the projection view:
+
+```text
+ZC_SR_REQUEST
+```
+
+as:
+
+```text
+ServiceRequest
+```
+
+---
+
+### 8. Service Binding
+
+A Service Binding is created to publish and consume the RAP service.
+
+After activation, the service can be previewed using the generated SAP Fiori Elements application.
+
+---
 
 
-### 2. Table Preview
-<img width="940" height="517" alt="image" src="https://github.com/user-attachments/assets/d47c2858-5528-43ca-8b38-6532176048b4" />
 
-### 3. Interface CDS View
-<img width="940" height="499" alt="image" src="https://github.com/user-attachments/assets/eb740a88-9f0d-45da-a4b0-ae14a7e4e120" />
+## 🔄 Development Flow
 
-### 4. Behavior Definition
-<img width="940" height="537" alt="image" src="https://github.com/user-attachments/assets/0bb26a69-f0f7-4486-96d8-11b58d16f0aa" />
+The following steps were followed to build this application:
+
+### Step 1: Create Package
+
+Create an ABAP package to organize all RAP development objects.
+
+### Step 2: Create Database Table
+
+Create the database table to store service request information.
+
+### Step 3: Create Interface CDS View
+
+Create the root CDS View Entity:
+
+```text
+ZI_SR_REQUEST
+```
+
+This serves as the interface layer of the RAP business object.
+
+### Step 4: Create Behavior Definition
+
+Create a managed behavior definition for the interface CDS view.
+
+Supported operations:
+
+```text
+Create
+Update
+Delete
+```
+
+### Step 5: Create Behavior Implementation
+
+Generate the behavior pool:
+
+```text
+ZBP_I_SR_REQUEST
+```
+
+using ADT.
+
+### Step 6: Create Projection CDS View
+
+Create the projection view:
+
+```text
+ZC_SR_REQUEST
+```
+
+based on the interface CDS view.
+
+### Step 7: Create Projection Behavior
+
+Create the projection behavior definition for the consumption layer.
+
+### Step 8: Create Service Definition
+
+Create and expose the RAP service:
+
+```text
+ZUI_SR_REQUEST
+```
+
+### Step 9: Create Service Binding
+
+Create and activate the Service Binding.
+
+### Step 10: Preview the Application
+
+After activation, preview the generated SAP Fiori Elements application.
+
+---
 
 
-### 5. Behavior Pool
-
-
-### 6. Projection CDS View
-
-### 7. Projection Behavior
-<img width="940" height="442" alt="image" src="https://github.com/user-attachments/assets/968975db-2900-4c87-83f7-cf1c76591b67" />
-
-
-### 8. Service Definition
-<img width="940" height="379" alt="image" src="https://github.com/user-attachments/assets/a8f3539c-f784-4bd3-b705-c995c70bd0fe" />
-
-
-### 9. Service Binding
-<img width="940" height="959" alt="image" src="https://github.com/user-attachments/assets/f9d5a2a1-2148-4025-9e09-94733ca6a6aa" />
-Before activating
-
-After Activating
-
-<img width="940" height="494" alt="image" src="https://github.com/user-attachments/assets/a3383fee-8d8b-4483-b808-063259f8242c" />
 
 
 
 
 
-### 10. Fiori Preview
-<img width="785" height="814" alt="image" src="https://github.com/user-attachments/assets/6a482c9a-6994-4220-9052-475ced0cfd3d" />
-<img width="714" height="853" alt="image" src="https://github.com/user-attachments/assets/ebdf2be4-aa2b-48c3-a305-b46a41288f11" />
-<img width="940" height="433" alt="image" src="https://github.com/user-attachments/assets/ecbdcab8-fced-4387-ab8b-68e903d62889" />
-<img width="819" height="585" alt="image" src="https://github.com/user-attachments/assets/08939163-bfe9-4a67-9577-ffd5d66b2290" />
+## 📚 Key Learning Outcomes
+
+This project helped demonstrate:
+
+* SAP RAP application architecture
+* CDS Root View Entities
+* Managed Behavior Definitions
+* Behavior Pool generation
+* Projection Views
+* Projection Behavior Definitions
+* Service Definitions
+* Service Bindings
+* SAP Fiori Elements preview
+
+---
+
+
 
 
 
