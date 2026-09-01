@@ -1,0 +1,14 @@
+managed implementation in class zbp_i_sr_request unique;
+strict ( 2 );
+
+define behavior for ZI_SR_REQUEST alias ServiceRequest
+persistent table zsrm_request
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) RequestId;
+}

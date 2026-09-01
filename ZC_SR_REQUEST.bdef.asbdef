@@ -1,0 +1,6 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_SR_REQUEST alias ServiceRequest
+{
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Request UI Service'
+
+define service ZUI_SR_REQUEST {
+  expose ZC_SR_REQUEST as ServiceRequest;
+}
